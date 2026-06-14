@@ -3,6 +3,8 @@ async function runVaultBoot() {
   const bootText = document.getElementById("boot-text");
   const enterButton = document.getElementById("enter-vault-btn");
 
+  enterButton.classList.add("hidden");
+
   const titleText = "VAULT SYSTEM ONLINE";
 
   const bootSequence = [
@@ -26,7 +28,7 @@ function enterVault() {
   const bootScreen = document.getElementById("boot-screen");
   const site = document.getElementById("site");
 
-  localStorage.setItem("cwgVaultAccess", "granted");
+  localStorage.setItem("cwgVaultAccessTime", Date.now().toString());
 
   bootScreen.classList.add("vault-open");
 
