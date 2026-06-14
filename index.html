@@ -31,11 +31,12 @@
         </div>
 
         <div class="nav-links">
-          <a href="#genetics">Genetics</a>
-          <a href="#drops">Drops</a>
-          <a href="#lab">Lab</a>
-          <a href="#wormhole">Wormhole</a>
-          <a href="#contact">Access</a>
+          <button class="nav-btn active" data-screen="genetics-screen">Genetics</button>
+          <button class="nav-btn" data-screen="drops-screen">Drops</button>
+          <button class="nav-btn" data-screen="lab-screen">Lab</button>
+          <button class="nav-btn" data-screen="archive-screen">Archive</button>
+          <button class="nav-btn" data-screen="wormhole-screen">Wormhole</button>
+          <button class="nav-btn" data-screen="access-screen">Access</button>
         </div>
       </nav>
 
@@ -46,11 +47,6 @@
           A high-tech Chronic Worm Genetics experience built for premium releases,
           breeding projects, grow archives, and The Wormhole project network.
         </p>
-
-        <div class="hero-actions">
-          <a class="primary-btn" href="#genetics">Open Genetics Vault</a>
-          <a class="ghost-btn" href="#wormhole">Enter The Wormhole</a>
-        </div>
       </section>
     </header>
 
@@ -73,7 +69,7 @@
       </div>
     </section>
 
-    <section id="genetics" class="section">
+    <section id="genetics-screen" class="section vault-screen active-screen">
       <div class="section-heading">
         <p class="eyebrow">01 // GENETICS VAULT</p>
         <h2>Available Genetics</h2>
@@ -83,7 +79,7 @@
       <div id="strain-grid" class="card-grid"></div>
     </section>
 
-    <section id="drops" class="section split-section">
+    <section id="drops-screen" class="section split-section vault-screen">
       <div>
         <p class="eyebrow">02 // ACTIVE DROPS</p>
         <h2>Vault Release Window</h2>
@@ -94,14 +90,14 @@
       </div>
 
       <div class="terminal-card">
-        <p>> DROP STATUS: LIVE</p>
-        <p>> REQUEST SYSTEM: STANDBY</p>
-        <p>> PACK INVENTORY: MANUAL ENTRY</p>
-        <p>> NEXT FEATURE: ORDER BUILDER</p>
+        <p>&gt; DROP STATUS: LIVE</p>
+        <p>&gt; REQUEST SYSTEM: STANDBY</p>
+        <p>&gt; PACK INVENTORY: MANUAL ENTRY</p>
+        <p>&gt; NEXT FEATURE: ORDER BUILDER</p>
       </div>
     </section>
 
-    <section id="lab" class="section">
+    <section id="lab-screen" class="section vault-screen">
       <div class="section-heading">
         <p class="eyebrow">03 // BREEDING LAB</p>
         <h2>Restricted Projects</h2>
@@ -111,7 +107,7 @@
       <div id="project-grid" class="card-grid"></div>
     </section>
 
-    <section id="archive" class="section archive-section">
+    <section id="archive-screen" class="section archive-section vault-screen">
       <div class="section-heading">
         <p class="eyebrow">04 // ARCHIVE WING</p>
         <h2>Legacy Files</h2>
@@ -121,7 +117,7 @@
       <div id="archive-grid" class="card-grid"></div>
     </section>
 
-    <section id="wormhole" class="section wormhole-section">
+    <section id="wormhole-screen" class="section wormhole-section vault-screen">
       <div class="section-heading">
         <p class="eyebrow">05 // THE WORMHOLE</p>
         <h2>Project Network</h2>
@@ -134,7 +130,7 @@
       <div id="wormhole-grid" class="card-grid"></div>
     </section>
 
-    <section id="contact" class="section contact-section">
+    <section id="access-screen" class="section contact-section vault-screen">
       <p class="eyebrow">06 // REQUEST ACCESS</p>
       <h2>Request Packs / Contact CWG</h2>
       <p>
