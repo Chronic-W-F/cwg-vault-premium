@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hasAccess = sessionStorage.getItem("cwgVaultAccess") === "granted";
+  const hasAccess = localStorage.getItem("cwgVaultAccess") === "granted";
   const bootScreen = document.getElementById("boot-screen");
   const site = document.getElementById("site");
   const enterButton = document.getElementById("enter-vault-btn");
@@ -11,10 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hasAccess) {
     bootScreen.classList.add("hidden");
     site.classList.remove("hidden");
-  } else {
-    runVaultBoot();
-    enterButton.addEventListener("click", enterVault);
+    return;
   }
+
+  runVaultBoot();
+  enterButton.addEventListener("click", enterVault);
 });
 
 function renderStrains() {
