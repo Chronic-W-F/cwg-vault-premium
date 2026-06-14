@@ -20,6 +20,13 @@ const projects = [
     description: "The main Chronic Worm Genetics breeder site and public-facing genetics hub.",
     url: "https://chronic-worm-genetics.vercel.app/"
   },
+ {
+  name: "Containment Unit 13",
+  category: "Utility App",
+  status: "Live",
+  description: "A horror-themed storage inventory system built to organize totes, containers, and hidden collections through a clean mobile-friendly interface.",
+  url: "https://containment-unit-13.vercel.app/"
+},
   {
     name: "Joe's Grows",
     category: "Client / Merch Site",
