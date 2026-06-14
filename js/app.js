@@ -1,12 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  runVaultBoot();
-
+  const hasAccess = sessionStorage.getItem("cwgVaultAccess") === "granted";
+  const bootScreen = document.getElementById("boot-screen");
+  const site = document.getElementById("site");
   const enterButton = document.getElementById("enter-vault-btn");
-  enterButton.addEventListener("click", enterVault);
 
   renderStrains();
   renderProjects();
   renderArchive();
+
+  if (hasAccess) {
+    bootScreen.classList.add("hidden");
+    site.classList.remove("hidden");
+  } else {
+    runVaultBoot();
+    enterButton.addEventListener("click", enterVault);
+  }
 });
 
 function renderStrains() {
@@ -48,7 +56,11 @@ function renderProjects() {
             <h3>${project.name}</h3>
             <div class="card-meta">${project.category}</div>
             <p>${project.description}</p>
-            <a href="${project.url}" class="card-button" target="_blank" rel="noopener">Open Portal</a>
+            ${
+              project.url && project.url !== "#"
+                ? `<a href="${project.url}" class="card-button" target="_blank" rel="noopener">Open Portal</a>`
+                : `<span class="card-button disabled-button">Portal Pending</span>`
+            }
           </div>
         </article>
       `;
@@ -56,7 +68,7 @@ function renderProjects() {
     .join("");
 
   if (grid) {
-    grid.innerHTML = projectCards.slice(0, projectCards.length);
+    grid.innerHTML = projectCards;
   }
 
   if (wormholeGrid) {
