@@ -11,7 +11,6 @@ async function runVaultBoot() {
     "> Establishing encrypted tunnel...",
     "> Authenticating Chronic Worm credentials...",
     "> Scanning genetics archive...",
-    "> Unlocking restricted breeding files...",
     "> Opening Wormhole project network...",
     "> Access level confirmed.",
     "",
@@ -28,7 +27,7 @@ function enterVault() {
   const bootScreen = document.getElementById("boot-screen");
   const site = document.getElementById("site");
 
-  localStorage.setItem("cwgVaultAccessTime", Date.now().toString());
+  sessionStorage.setItem("cwgVaultAccess", "granted");
 
   bootScreen.classList.add("vault-open");
 
