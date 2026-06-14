@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderStrains();
   renderProjects();
   renderArchive();
+  setupVaultNavigation();
 
   if (hasAccess) {
     bootScreen.classList.add("hidden");
@@ -34,7 +35,7 @@ function renderStrains() {
             <div class="tag-row">
               ${strain.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
             </div>
-            <a href="#contact" class="card-button">Request Access</a>
+            <button class="card-button">Request Access</button>
           </div>
         </article>
       `;
@@ -98,4 +99,28 @@ function renderArchive() {
       `;
     })
     .join("");
+}
+
+function setupVaultNavigation() {
+  const buttons = document.querySelectorAll(".nav-btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      document
+        .querySelectorAll(".vault-screen")
+        .forEach((screen) => screen.classList.remove("active-screen"));
+
+      document
+        .querySelectorAll(".nav-btn")
+        .forEach((btn) => btn.classList.remove("active"));
+
+      const target = document.getElementById(button.dataset.screen);
+
+      if (target) {
+        target.classList.add("active-screen");
+      }
+
+      button.classList.add("active");
+    });
+  });
 }
