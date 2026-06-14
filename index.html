@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Chronic Worm Genetics Vault</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div id="boot-screen" class="boot-screen">
+    <div class="scanlines"></div>
+    <div class="boot-panel">
+      <p class="boot-label">CWG BLACK VAULT SYSTEM</p>
+      <h1 id="boot-title">Initializing...</h1>
+      <div id="boot-text" class="boot-text"></div>
+      <button id="enter-vault-btn" class="hidden vault-button">ENTER THE VAULT</button>
+    </div>
+  </div>
+
+  <main id="site" class="site hidden">
+    <header class="hero">
+      <div class="hero-grid"></div>
+
+      <nav class="top-nav">
+        <div class="brand">
+          <span class="brand-mark">CWG</span>
+          <span>Chronic Worm Genetics Vault</span>
+        </div>
+
+        <div class="nav-links">
+          <a href="#genetics">Genetics</a>
+          <a href="#drops">Drops</a>
+          <a href="#lab">Lab</a>
+          <a href="#wormhole">Wormhole</a>
+          <a href="#contact">Access</a>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <p class="eyebrow">CLASSIFIED GENETICS ARCHIVE // ACCESS GRANTED</p>
+        <h1>Welcome to the Underground Vault.</h1>
+        <p class="hero-copy">
+          A high-tech Chronic Worm Genetics experience built for premium releases,
+          breeding projects, grow archives, and The Wormhole project network.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-btn" href="#genetics">Open Genetics Vault</a>
+          <a class="ghost-btn" href="#wormhole">Enter The Wormhole</a>
+        </div>
+      </section>
+    </header>
+
+    <section class="vault-status">
+      <div>
+        <span>Vault Status</span>
+        <strong>ONLINE</strong>
+      </div>
+      <div>
+        <span>Current Drop</span>
+        <strong>ACTIVE</strong>
+      </div>
+      <div>
+        <span>Archive Level</span>
+        <strong>RESTRICTED</strong>
+      </div>
+      <div>
+        <span>Wormhole</span>
+        <strong>OPEN</strong>
+      </div>
+    </section>
+
+    <section id="genetics" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">01 // GENETICS VAULT</p>
+        <h2>Available Genetics</h2>
+        <p>Premium CWG lines stored as secure vault files.</p>
+      </div>
+
+      <div id="strain-grid" class="card-grid"></div>
+    </section>
+
+    <section id="drops" class="section split-section">
+      <div>
+        <p class="eyebrow">02 // ACTIVE DROPS</p>
+        <h2>Vault Release Window</h2>
+        <p>
+          Future drops can live here with countdowns, availability status,
+          request buttons, and featured strain spotlights.
+        </p>
+      </div>
+
+      <div class="terminal-card">
+        <p>> DROP STATUS: LIVE</p>
+        <p>> REQUEST SYSTEM: STANDBY</p>
+        <p>> PACK INVENTORY: MANUAL ENTRY</p>
+        <p>> NEXT FEATURE: ORDER BUILDER</p>
+      </div>
+    </section>
+
+    <section id="lab" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">03 // BREEDING LAB</p>
+        <h2>Restricted Projects</h2>
+        <p>Future crosses, testers, lineage files, and underground experiments.</p>
+      </div>
+
+      <div id="project-grid" class="card-grid"></div>
+    </section>
+
+    <section id="archive" class="section archive-section">
+      <div class="section-heading">
+        <p class="eyebrow">04 // ARCHIVE WING</p>
+        <h2>Legacy Files</h2>
+        <p>Retired strains, past grows, historic releases, and sealed vault records.</p>
+      </div>
+
+      <div id="archive-grid" class="card-grid"></div>
+    </section>
+
+    <section id="wormhole" class="section wormhole-section">
+      <div class="section-heading">
+        <p class="eyebrow">05 // THE WORMHOLE</p>
+        <h2>Project Network</h2>
+        <p>
+          Connected projects, breeder portals, grow tools, music, and creative builds
+          from the Chronic Worm network.
+        </p>
+      </div>
+
+      <div id="wormhole-grid" class="card-grid"></div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <p class="eyebrow">06 // REQUEST ACCESS</p>
+      <h2>Request Packs / Contact CWG</h2>
+      <p>
+        This section will later connect to Instagram, email, order sheets,
+        or a request form.
+      </p>
+
+      <div class="access-box">
+        <p>ACCESS METHOD</p>
+        <strong>DM Chronic Worm Farmer</strong>
+        <span>Manual request system active until full order builder is installed.</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="data/strains.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="data/archive.js"></script>
+
+  <script src="js/typewriter.js"></script>
+  <script src="js/vault.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
