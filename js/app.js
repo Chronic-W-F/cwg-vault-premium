@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.search.includes("reset=true")) {
-    localStorage.removeItem("cwgVaultAccessTime");
-  }
+  localStorage.removeItem("cwgVaultAccess");
+  localStorage.removeItem("cwgVaultAccessTime");
 
   const bootScreen = document.getElementById("boot-screen");
   const site = document.getElementById("site");
@@ -11,13 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   setupVaultNavigation();
 
-  const accessTime = Number(localStorage.getItem("cwgVaultAccessTime"));
-  const now = Date.now();
-  const sixHours = 6 * 60 * 60 * 1000;
+  const hasSessionAccess = sessionStorage.getItem("cwgVaultAccess") === "granted";
 
-  const hasRecentAccess = accessTime && now - accessTime < sixHours;
-
-  if (hasRecentAccess) {
+  if (hasSessionAccess) {
     bootScreen.classList.add("hidden");
     site.classList.remove("hidden");
     return;
@@ -84,8 +79,7 @@ function setupVaultNavigation() {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const screenId = button.dataset.screen;
-      showScreen(screenId);
+      showScreen(button.dataset.screen);
     });
   });
 }
