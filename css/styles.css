@@ -432,4 +432,38 @@ a {
   .hero-content {
     padding-top: 14vh;
   }
+  .nav-btn {
+  background: transparent;
+  border: 1px solid rgba(215,180,106,0.2);
+  color: var(--muted);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.nav-btn:hover {
+  color: var(--gold-bright);
+  border-color: var(--gold);
+}
+
+.nav-btn.active {
+  background: rgba(215,180,106,0.15);
+  color: var(--gold-bright);
+  border-color: var(--gold);
+}
+
+.vault-screen {
+  display: none;
+}
+
+.active-screen {
+  display: block;
+}
+
+.disabled-button {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 }
