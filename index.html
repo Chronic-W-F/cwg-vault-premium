@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Chronic Worm Genetics Vault</title>
-
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -21,7 +19,7 @@
   </div>
 
   <main id="site" class="site hidden">
-    <header class="hero">
+    <header class="hero compact-hero">
       <div class="hero-grid"></div>
 
       <nav class="top-nav">
@@ -31,23 +29,13 @@
         </div>
 
         <div class="nav-links">
-          <button class="nav-btn active" data-screen="genetics-screen">Genetics</button>
+          <button class="nav-btn active" data-screen="dashboard-screen">Dashboard</button>
+          <button class="nav-btn" data-screen="genetics-screen">Genetics</button>
           <button class="nav-btn" data-screen="drops-screen">Drops</button>
-          <button class="nav-btn" data-screen="lab-screen">Lab</button>
-          <button class="nav-btn" data-screen="archive-screen">Archive</button>
           <button class="nav-btn" data-screen="wormhole-screen">Wormhole</button>
           <button class="nav-btn" data-screen="access-screen">Access</button>
         </div>
       </nav>
-
-      <section class="hero-content">
-        <p class="eyebrow">CLASSIFIED GENETICS ARCHIVE // ACCESS GRANTED</p>
-        <h1>Welcome to the Underground Vault.</h1>
-        <p class="hero-copy">
-          A high-tech Chronic Worm Genetics experience built for premium releases,
-          breeding projects, grow archives, and The Wormhole project network.
-        </p>
-      </section>
     </header>
 
     <section class="vault-status">
@@ -60,8 +48,8 @@
         <strong>ACTIVE</strong>
       </div>
       <div>
-        <span>Archive Level</span>
-        <strong>RESTRICTED</strong>
+        <span>Security Level</span>
+        <strong>CLASSIFIED</strong>
       </div>
       <div>
         <span>Wormhole</span>
@@ -69,7 +57,44 @@
       </div>
     </section>
 
-    <section id="genetics-screen" class="section vault-screen active-screen">
+    <section id="dashboard-screen" class="section vault-screen active-screen dashboard-screen">
+      <div class="section-heading">
+        <p class="eyebrow">CWG VAULT OS // ACCESS GRANTED</p>
+        <h2>Command Dashboard</h2>
+        <p>
+          Select a system module below. The Vault contains genetics, active drops,
+          project portals, and request access points.
+        </p>
+      </div>
+
+      <div class="dashboard-grid">
+        <button class="dashboard-card" data-screen="genetics-screen">
+          <span>01</span>
+          <h3>Open Genetics Vault</h3>
+          <p>View available CWG seed lines and secured cultivar files.</p>
+        </button>
+
+        <button class="dashboard-card" data-screen="drops-screen">
+          <span>02</span>
+          <h3>View Active Drops</h3>
+          <p>Check drop status, release windows, and future order-builder space.</p>
+        </button>
+
+        <button class="dashboard-card" data-screen="wormhole-screen">
+          <span>03</span>
+          <h3>Enter The Wormhole</h3>
+          <p>Explore breeder sites, tools, apps, and projects built in the network.</p>
+        </button>
+
+        <button class="dashboard-card" data-screen="access-screen">
+          <span>04</span>
+          <h3>Request Access</h3>
+          <p>Contact CWG for packs, availability, projects, and collaborations.</p>
+        </button>
+      </div>
+    </section>
+
+    <section id="genetics-screen" class="section vault-screen">
       <div class="section-heading">
         <p class="eyebrow">01 // GENETICS VAULT</p>
         <h2>Available Genetics</h2>
@@ -97,29 +122,9 @@
       </div>
     </section>
 
-    <section id="lab-screen" class="section vault-screen">
-      <div class="section-heading">
-        <p class="eyebrow">03 // BREEDING LAB</p>
-        <h2>Restricted Projects</h2>
-        <p>Future crosses, testers, lineage files, and underground experiments.</p>
-      </div>
-
-      <div id="project-grid" class="card-grid"></div>
-    </section>
-
-    <section id="archive-screen" class="section archive-section vault-screen">
-      <div class="section-heading">
-        <p class="eyebrow">04 // ARCHIVE WING</p>
-        <h2>Legacy Files</h2>
-        <p>Retired strains, past grows, historic releases, and sealed vault records.</p>
-      </div>
-
-      <div id="archive-grid" class="card-grid"></div>
-    </section>
-
     <section id="wormhole-screen" class="section wormhole-section vault-screen">
       <div class="section-heading">
-        <p class="eyebrow">05 // THE WORMHOLE</p>
+        <p class="eyebrow">03 // THE WORMHOLE</p>
         <h2>Project Network</h2>
         <p>
           Connected projects, breeder portals, grow tools, music, and creative builds
@@ -131,7 +136,7 @@
     </section>
 
     <section id="access-screen" class="section contact-section vault-screen">
-      <p class="eyebrow">06 // REQUEST ACCESS</p>
+      <p class="eyebrow">04 // REQUEST ACCESS</p>
       <h2>Request Packs / Contact CWG</h2>
       <p>
         This section will later connect to Instagram, email, order sheets,
