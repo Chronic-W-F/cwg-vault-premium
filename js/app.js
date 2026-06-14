@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderStrains();
   renderProjects();
-  renderArchive();
   setupVaultNavigation();
 
   const accessTime = Number(localStorage.getItem("cwgVaultAccessTime"));
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   site.classList.add("hidden");
 
   runVaultBoot();
-
   enterButton.addEventListener("click", enterVault);
 });
 
@@ -48,7 +46,7 @@ function renderStrains() {
             <div class="tag-row">
               ${strain.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
             </div>
-            <button class="card-button">Request Access</button>
+            <button class="card-button" data-screen="access-screen">Request Access</button>
           </div>
         </article>
       `;
@@ -57,12 +55,10 @@ function renderStrains() {
 }
 
 function renderProjects() {
-  const grid = document.getElementById("project-grid");
   const wormholeGrid = document.getElementById("wormhole-grid");
+  if (!wormholeGrid || !Array.isArray(projects)) return;
 
-  if (!Array.isArray(projects)) return;
-
-  const projectCards = projects
+  wormholeGrid.innerHTML = projects
     .map((project, index) => {
       return `
         <article class="vault-card">
@@ -81,52 +77,35 @@ function renderProjects() {
       `;
     })
     .join("");
-
-  if (grid) grid.innerHTML = projectCards;
-  if (wormholeGrid) wormholeGrid.innerHTML = projectCards;
-}
-
-function renderArchive() {
-  const grid = document.getElementById("archive-grid");
-  if (!grid || !Array.isArray(archiveItems)) return;
-
-  grid.innerHTML = archiveItems
-    .map((item, index) => {
-      return `
-        <article class="vault-card">
-          <div class="card-content">
-            <div class="card-kicker">ARCHIVE ${String(index + 1).padStart(2, "0")} // ${item.status}</div>
-            <h3>${item.name}</h3>
-            <div class="card-meta">${item.type}</div>
-            <p>${item.description}</p>
-            <div class="tag-row">
-              ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
-            </div>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
 }
 
 function setupVaultNavigation() {
-  const buttons = document.querySelectorAll(".nav-btn");
+  const buttons = document.querySelectorAll("[data-screen]");
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      document
-        .querySelectorAll(".vault-screen")
-        .forEach((screen) => screen.classList.remove("active-screen"));
-
-      document
-        .querySelectorAll(".nav-btn")
-        .forEach((btn) => btn.classList.remove("active"));
-
-      const target = document.getElementById(button.dataset.screen);
-
-      if (target) target.classList.add("active-screen");
-
-      button.classList.add("active");
+      const screenId = button.dataset.screen;
+      showScreen(screenId);
     });
   });
+}
+
+function showScreen(screenId) {
+  const target = document.getElementById(screenId);
+  if (!target) return;
+
+  document
+    .querySelectorAll(".vault-screen")
+    .forEach((screen) => screen.classList.remove("active-screen"));
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach((btn) => btn.classList.remove("active"));
+
+  target.classList.add("active-screen");
+
+  const activeNav = document.querySelector(`.nav-btn[data-screen="${screenId}"]`);
+  if (activeNav) activeNav.classList.add("active");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
