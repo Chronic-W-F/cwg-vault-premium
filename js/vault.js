@@ -26,6 +26,8 @@ function enterVault() {
   const bootScreen = document.getElementById("boot-screen");
   const site = document.getElementById("site");
 
+  localStorage.setItem("cwgVaultAccess", "granted");
+
   bootScreen.classList.add("vault-open");
 
   setTimeout(() => {
