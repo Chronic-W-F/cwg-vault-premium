@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hasAccess = localStorage.getItem("cwgVaultAccess") === "granted";
+  if (window.location.search.includes("reset=true")) {
+    localStorage.removeItem("cwgVaultAccessTime");
+  }
+
   const bootScreen = document.getElementById("boot-screen");
   const site = document.getElementById("site");
   const enterButton = document.getElementById("enter-vault-btn");
@@ -9,13 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
   renderArchive();
   setupVaultNavigation();
 
-  if (hasAccess) {
+  const accessTime = Number(localStorage.getItem("cwgVaultAccessTime"));
+  const now = Date.now();
+  const sixHours = 6 * 60 * 60 * 1000;
+
+  const hasRecentAccess = accessTime && now - accessTime < sixHours;
+
+  if (hasRecentAccess) {
     bootScreen.classList.add("hidden");
     site.classList.remove("hidden");
     return;
   }
 
+  bootScreen.classList.remove("hidden");
+  site.classList.add("hidden");
+
   runVaultBoot();
+
   enterButton.addEventListener("click", enterVault);
 });
 
@@ -69,13 +82,8 @@ function renderProjects() {
     })
     .join("");
 
-  if (grid) {
-    grid.innerHTML = projectCards;
-  }
-
-  if (wormholeGrid) {
-    wormholeGrid.innerHTML = projectCards;
-  }
+  if (grid) grid.innerHTML = projectCards;
+  if (wormholeGrid) wormholeGrid.innerHTML = projectCards;
 }
 
 function renderArchive() {
@@ -116,9 +124,7 @@ function setupVaultNavigation() {
 
       const target = document.getElementById(button.dataset.screen);
 
-      if (target) {
-        target.classList.add("active-screen");
-      }
+      if (target) target.classList.add("active-screen");
 
       button.classList.add("active");
     });
